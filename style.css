@@ -57,9 +57,9 @@ a{color:inherit;}
 header{position:sticky;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.100);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
 .header-inner{max-width:1160px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
 .logo{display:flex;align-items:center;text-decoration:none;}
-.logo-img{height:180px;width:auto;display:block;}
+.logo-img{height:250px;width:auto;display:block;}
 .logo-plate{background:#fff;border-radius:8px;padding:7px 14px;}
-.logo-plate .logo-img{height:180px;}
+.logo-plate .logo-img{height:250px;}
 nav.main-nav{display:flex;gap:32px;}
 nav.main-nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.92rem;transition:.2s;padding-bottom:4px;border-bottom:2px solid transparent;}
 nav.main-nav a:hover{color:var(--blue);}
