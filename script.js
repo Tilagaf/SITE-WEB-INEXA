@@ -8,7 +8,6 @@ if (header) {
   window.addEventListener('scroll', onScroll);
   onScroll();
 }
-
 // Menu mobile
 const burger = document.getElementById('burger');
 const mobileMenu = document.getElementById('mobileMenu');
@@ -22,7 +21,6 @@ if (burger && mobileMenu) {
     burger.textContent = '☰';
   }));
 }
-
 // Galerie des réalisations (lightbox léger, sans dépendance)
 const lightbox = document.getElementById('lightbox');
 if (lightbox) {
@@ -33,7 +31,6 @@ if (lightbox) {
   const nextBtn = lightbox.querySelector('.lightbox-next');
   let currentGroup = [];
   let currentIndex = 0;
-
   function render() {
     lightboxImg.src = currentGroup[currentIndex];
     if (lightboxCount) lightboxCount.textContent = (currentIndex + 1) + ' / ' + currentGroup.length;
@@ -66,14 +63,30 @@ if (lightbox) {
     if (e.key === 'ArrowRight') move(1);
   });
 }
-
-// Formulaire de contact (présent uniquement sur contact.html) — démo sans backend
+// Formulaire de contact (présent uniquement sur contact.html) — envoi réel via Formspree
 const form = document.getElementById('contactForm');
 const formSuccess = document.getElementById('formSuccess');
 if (form && formSuccess) {
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    form.style.display = 'none';
-    formSuccess.style.display = 'flex';
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Envoi en cours...'; }
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' },
+      });
+      if (response.ok) {
+        form.style.display = 'none';
+        formSuccess.style.display = 'flex';
+      } else {
+        alert("Une erreur est survenue lors de l'envoi. Merci de réessayer ou de nous appeler directement.");
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Envoyer ma demande'; }
+      }
+    } catch (err) {
+      alert("Une erreur est survenue lors de l'envoi. Merci de réessayer ou de nous appeler directement.");
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Envoyer ma demande'; }
+    }
   });
 }
