@@ -81,38 +81,53 @@
             <div><h4>Zone d'intervention</h4><p>Toute l'île de La Réunion</p></div>
           </div>
         </div>
+
         <div class="contact-form">
-         <form id="contactForm" action="https://formspree.io/f/mzepyyek" method="POST">
+
+          <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+
+            <input type="hidden" name="access_key" value="c0750c8b-0bd1-41e3-a1f3-95b6a16b46d1">
+
+            <input type="hidden" name="subject" value="Nouvelle demande de contact - Site INEXA">
+
             <div class="form-row">
               <div class="form-group">
                 <label for="nom">Nom complet *</label>
-                <input type="text" id="nom" name="nom" placeholder="Jean Dupont" required>
+                <input type="text" id="nom" name="name" placeholder="Jean Dupont" required>
               </div>
+
               <div class="form-group">
                 <label for="email">Email *</label>
                 <input type="email" id="email" name="email" placeholder="jean.dupont@email.fr" required>
               </div>
             </div>
+
             <div class="form-row">
               <div class="form-group">
                 <label for="telephone">Téléphone</label>
                 <input type="tel" id="telephone" name="telephone" placeholder="06 92 xx xx xx">
               </div>
+
               <div class="form-group">
                 <label for="objet">Objet</label>
                 <input type="text" id="objet" name="objet" placeholder="Ex : devis installation électrique">
               </div>
             </div>
+
             <div class="form-group">
               <label for="message">Message *</label>
               <textarea id="message" name="message" placeholder="Décrivez votre projet..." required></textarea>
             </div>
+
             <button type="submit" class="btn btn-primary" style="width:100%;">Envoyer ma demande</button>
+
           </form>
+
           <div class="form-success" id="formSuccess">
             <span style="font-size:1.4rem;">✓</span>
             <span>Merci ! Votre demande a bien été envoyée. Nous vous recontacterons sous 24h.</span>
           </div>
+
         </div>
       </div>
     </div>
